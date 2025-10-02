@@ -110,13 +110,13 @@ export default function RegionalSafetyMap({
   useEffect(() => {
     if (isClient) {
       // 간단한 Mock GeoJSON (실제로는 대한민국 시도 경계 GeoJSON 사용)
-      const mockGeoJson: GeoJsonObject = {
+      const mockGeoJson = {
         type: 'FeatureCollection',
         features: [
           // 실제 프로젝트에서는 대한민국 시도 경계 GeoJSON을 사용해야 함
           // 여기서는 구조만 표시
         ] as Feature[]
-      };
+      } as GeoJsonObject;
       setGeoJsonData(mockGeoJson);
     }
   }, [isClient]);
