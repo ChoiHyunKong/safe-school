@@ -2,6 +2,7 @@
 
 import dynamic from 'next/dynamic';
 import { useState } from 'react';
+import CountUpAnimation from '@/components/ui/CountUpAnimation';
 
 // 지도 컴포넌트는 클라이언트 사이드만 로드
 const RegionalSafetyMap = dynamic(
@@ -58,25 +59,33 @@ export default function Home() {
       <div className="stats-grid">
         <div className="stats-card">
           <div className="stats-label">전국 학교 수</div>
-          <div className="stats-value">11,700</div>
+          <div className="stats-value" aria-live="polite">
+            <CountUpAnimation end={11700} />
+          </div>
           <div className="stats-description">초/중/고등학교</div>
         </div>
 
         <div className="stats-card" style={{ animationDelay: '0.1s' }}>
           <div className="stats-label">평균 안전지수</div>
-          <div className="stats-value">78.5</div>
+          <div className="stats-value" aria-live="polite">
+            <CountUpAnimation end="78.5" />
+          </div>
           <div className="safety-badge-b">B등급</div>
         </div>
 
         <div className="stats-card" style={{ animationDelay: '0.2s' }}>
           <div className="stats-label">S등급 학교</div>
-          <div className="stats-value">1,250</div>
+          <div className="stats-value" aria-live="polite">
+            <CountUpAnimation end={1250} />
+          </div>
           <div className="stats-description">전체의 10.7%</div>
         </div>
 
         <div className="stats-card" style={{ animationDelay: '0.3s' }}>
           <div className="stats-label">데이터 최신화</div>
-          <div className="stats-value">2024.09</div>
+          <div className="stats-value" aria-live="polite">
+            <CountUpAnimation end="2024.09" />
+          </div>
           <div className="stats-description">매월 업데이트</div>
         </div>
       </div>

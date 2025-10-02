@@ -830,3 +830,99 @@ body.bg-gradient-3 {
     padding: 0.75rem;
   }
 }
+
+/* =============================================================================
+   Rolling Number Animation
+   ============================================================================= */
+
+.rolling-number-container {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+}
+
+.rolling-digit-wrapper {
+  display: inline-block;
+  position: relative;
+  width: 0.6em;
+  height: 1.2em;
+  overflow: hidden;
+  text-align: center;
+}
+
+.rolling-digit {
+  display: inline-block;
+  transition: transform 0.15s ease-out;
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
+
+.rolling-digit.animating {
+  animation: digitPulse 0.15s ease-out;
+}
+
+@keyframes digitPulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.rolling-digit-separator {
+  display: inline-block;
+  margin: 0 0.05em;
+  font-variant-numeric: tabular-nums;
+}
+
+
+/* =============================================================================
+   Smooth Number Animation (Digit-by-Digit)
+   ============================================================================= */
+
+.smooth-number-container {
+  display: inline-flex;
+  align-items: center;
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
+
+.smooth-digit {
+  display: inline-block;
+  min-width: 0.6em;
+  text-align: center;
+  transition: transform 0.1s ease-out;
+}
+
+.smooth-separator {
+  display: inline-block;
+  margin: 0 0.05em;
+}
+
+
+/* =============================================================================
+   Sequential Count Up Animation (Right to Left)
+   ============================================================================= */
+
+.sequential-countup-container {
+  display: inline-flex;
+  align-items: center;
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
+
+.sequential-digit {
+  display: inline-block;
+  min-width: 0.6em;
+  text-align: center;
+}
+
+.sequential-separator {
+  display: inline-block;
+  margin: 0 0.05em;
+}
