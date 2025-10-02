@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { MapContainer, TileLayer, GeoJSON, Popup, Marker, Circle, useMap } from 'react-leaflet';
 import type { GeoJsonObject, Feature } from 'geojson';
 import L from 'leaflet';
@@ -153,7 +153,7 @@ export default function RegionalSafetyMap({
   };
 
   // 지역 이벤트 핸들러
-  const onEachFeature = (feature: Feature, layer: any) => {
+  const onEachFeature = (feature: Feature, layer: L.Layer) => {
     const regionName = feature.properties?.name || '';
     const data = regionalData[regionName];
 
@@ -280,7 +280,7 @@ export default function RegionalSafetyMap({
         {geoJsonData && (
           <GeoJSON
             data={geoJsonData}
-            style={getFeatureStyle as any}
+            style={(feature) => getFeatureStyle(feature as Feature)}
             onEachFeature={onEachFeature}
           />
         )}
